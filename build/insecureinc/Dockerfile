@@ -1,8 +1,8 @@
 # Please use buildImage.sh script to build this image.
 # This stage is compiling the code and packaging war file in target folder
 FROM maven:3.8.1-openjdk-8 as build_image
-ADD insecureinc /insecureinc
-RUN cd /insecureinc && mvn clean install
+ADD insecureinc ./insecureinc
+RUN cd ./insecureinc && mvn clean install
 
 FROM tomcat:8.5-jre8
 RUN rm -rf /var/lib/apt/lists/* && \
