@@ -11,4 +11,4 @@ RUN rm -rf /var/lib/apt/lists/* && \
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
 # Copying insecure-inc-1.0.war from the build_image phase, rest everyting from last phase is discarded
 COPY --from=build_image /insecureinc/target/insecure-inc-1.0.war /usr/local/tomcat/webapps/ROOT.war
-EXPOSE 8080
+EXPOSE $PORT
